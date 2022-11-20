@@ -1,40 +1,41 @@
-const progrees = document.querySelector(".progrees")
-const prev = document.getElementById("prev")
-const next = document.getElementById("next")
-const circles = document.querySelectorAll(".circle")
+const progrees = document.querySelector('.progrees')
+const circles = document.querySelectorAll('.circle')
+const prev = document.getElementById('prev')
+const next = document.getElementById('next')
 
-let currentActive = 1
-
-
-prev.addEventListener('click', ()=>{
-    currentActive--
-
-    if (currentActive < 1 ) {
-        currentActive = 1
-    }
-    update()
-
-})
+let count = 1;
+// console.log(count);
 
 next.addEventListener('click', ()=>{
-    currentActive++
-
-    if (currentActive > circles.length) {
-        currentActive = circles.length
+    count++
+    if (count > circles.length) {
+        count = circles.length
     }
+    // console.log(count);
     update()
+});
 
-})
+prev.addEventListener('click', ()=>{
+    count--
+    if (count < 1) {
+        count = 1
+    }
+    // console.log(count);
+    update()
+});
 
 function update(){
-    circles.forEach((circle, idx) => {
-        if (idx <  currentActive) {            
+    circles.forEach((circle, id) => {
+        if (id < count) {
             circle.classList.add('active')
         }else{
             circle.classList.remove('active')
         }
-    })
+    });
 
-    const actives = document.querySelectorAll('.active')
-    progrees.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%'
+    const active = document.querySelectorAll('.active')
+    progrees.style.width = (active.length - 1) / (circles.length - 1) * 100 + '%'   
 }
+
+
+
