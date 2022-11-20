@@ -1,0 +1,97 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+    --width: 360px;
+    --color1: rgb(174, 171, 171);
+    --color2: rgb(58, 125, 226);
+    --color3: #fff;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    /* background-color: red; */
+    /* border: 1px solid black; */
+    padding: 10px;
+    width: var(--width);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.container .progrees-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    /* background: green; */
+}
+
+.container .progrees-container::after{
+    content: '';
+    background-color: var(--color1);
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    z-index: -2;
+}
+
+.container .progrees-container .progrees{
+    position: absolute;
+    background: var(--color2);
+    width: 10%;
+    height: 5px;
+    border-radius: 10px;
+    top: 50%;
+    z-index: -1;
+    transition: .3s ease;
+}
+.container .progrees-container .progrees:hover{
+    width: 50%;
+    background-color: black;
+}
+
+.container .progrees-container a{
+    text-decoration: none;
+    color: var(--color1);
+    border: 3px solid var(--color1);
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+    background-color: var(--color3);
+}
+
+.container .progrees-container a.active{
+    color: var(--color2);
+    border: 3px solid var(--color2);
+    transition: .3s ease;
+}
+
+.btn-container button{
+    padding: 10px;
+    background-color: var(--color2);
+    border: none;
+    width: 100px;
+    color: var(--color3);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.btn-container button:hover{
+    filter: brightness(0.8);
+}
+
